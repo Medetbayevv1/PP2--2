@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Aizat Bekova",
+    "email": "aizat@gmail.com",
+    "birthday": "1995-03-12",
+    "group": "Friend",
+    "phones": [
+      {
+        "phone": "+77012345678",
+        "type": "mobile"
+      },
+      {
+        "phone": "+77011112233",
+        "type": "work"
+      },
+      {
+        "phone": "+77011112233",
+        "type": "work"
+      },
+      {
+        "phone": "+77011112233",
+        "type": "work"
+      },
+      {
+        "phone": "+77011112233",
+        "type": "work"
+      }
+    ]
+  },
+  {
+    "name": "Nurlan Seitkali",
+    "email": "nurlan@work.kz",
+    "birthday": "1988-07-04",
+    "group": "Work",
+    "phones": [
+      {
+        "phone": "+77071112233",
+        "type": "work"
+      }
+    ]
+  },
+  {
+    "name": "Dina Akhmetova",
+    "email": "dina@mail.ru",
+    "birthday": "2000-11-30",
+    "group": "Family",
+    "phones": [
+      {
+        "phone": "+77051234567",
+        "type": "mobile"
+      }
+    ]
+  },
+  {
+    "name": "Bekzat Ospanov",
+    "email": "bekzat@gmail.com",
+    "birthday": "1992-05-18",
+    "group": "Family",
+    "phones": [
+      {
+        "phone": "+77022223344",
+        "type": "home"
+      }
+    ]
+  }
+]
