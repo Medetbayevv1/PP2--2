@@ -1,14 +1,3 @@
-"""
-racer.py – GameSession class.
-Extends the original Game.py with:
-  • Lane hazards (oil spill, slow zone)
-  • Road events (speed bump, nitro strip, moving barrier)
-  • Three power-ups: Nitro, Shield, Repair
-  • Difficulty scaling
-  • Score = coins + distance bonus
-  • HUD with distance meter and active power-up display
-"""
-
 import pygame, sys, random, time
 from pygame.locals import *
 
@@ -161,7 +150,6 @@ class SpeedBump(pygame.sprite.Sprite):
 
 
 class RoadObstacle(pygame.sprite.Sprite):
-    """Small obstacle (rock / cone). Kills the player on contact."""
     SHAPES = ["rock", "cone"]
 
     def __init__(self, speed_ref):
@@ -171,10 +159,10 @@ class RoadObstacle(pygame.sprite.Sprite):
         if kind == "rock":
             w, h = 22, 18
             self.image = pygame.Surface((w, h), pygame.SRCALPHA)
-            # grey lumpy rock
+
             pygame.draw.ellipse(self.image, (110, 110, 110), (0, 4, w, h - 4))
             pygame.draw.ellipse(self.image, (90, 90, 90),    (3, 0, w - 8, h - 6))
-            pygame.draw.ellipse(self.image, (150, 150, 150), (4, 2, 8, 6))  # highlight
+            pygame.draw.ellipse(self.image, (150, 150, 150), (4, 2, 8, 6))  
         else:  # cone
             w, h = 18, 24
             self.image = pygame.Surface((w, h), pygame.SRCALPHA)
@@ -193,15 +181,14 @@ class RoadObstacle(pygame.sprite.Sprite):
             self.kill()
 
 
-# ── Power-ups ─────────────────────────────────────────────────────────────────
 
 class PowerUp(pygame.sprite.Sprite):
     TYPES = {
-        "nitro":  (CYAN,   "⚡ NITRO"),
-        "shield": (PURPLE, "🛡 SHIELD"),
-        "repair": (GREEN,  "🔧 REPAIR"),
+        "nitro":  (CYAN,   "NITRO"),
+        "shield": (PURPLE, "SHIELD"),
+        "repair": (GREEN,  "REPAIR"),
     }
-    TIMEOUT = 8000   # ms before auto-despawn
+    TIMEOUT = 8000   
 
     def __init__(self, speed_ref):
         super().__init__()
@@ -227,7 +214,7 @@ class PowerUp(pygame.sprite.Sprite):
             self.kill()
 
 
-# ── Background scroller ───────────────────────────────────────────────────────
+
 
 class ScrollBG:
     def __init__(self, image, speed_ref):
@@ -248,12 +235,11 @@ class ScrollBG:
         surf.blit(self._img, (0, int(self._y2)))
 
 
-# ── GameSession ────────────────────────────────────────────────────────────────
+
 
 class GameSession:
-    # power-up durations in ms
     NITRO_DUR  = 4000
-    SHIELD_DUR = 999999   # until hit
+    SHIELD_DUR = 999999   
 
     def __init__(self, surf, settings):
         self.surf     = surf
@@ -358,7 +344,6 @@ class GameSession:
     # ── helpers ──────────────────────────────────────────────────────────────
 
     def _oil_scroll_away(self):
-        """Called when an OilSpill scrolls off the bottom — ensure speed is restored."""
         if self._oil_applied:
             self._oil_applied = False
             self.on_oil       = False
@@ -411,7 +396,6 @@ class GameSession:
         self.bumps.add(s)
 
     def _crash(self):
-        """Handle collision with enemy or barrier."""
         if self.shield_active:
             # shield absorbs one hit
             self.shield_active = False
@@ -524,14 +508,14 @@ class GameSession:
             self.on_oil       = False
             self._speed[0]    = min(self._speed[0] + self._OIL_SLOW, 10)
 
-        # ── speed bump (killed on contact) ────────────────────────────────────
+
         pygame.sprite.spritecollide(self.player, self.bumps, True)
 
-        # ── obstacle collision → game over ────────────────────────────────────
+
         if pygame.sprite.spritecollideany(self.player, self.obstacles):
             self._crash()
 
-        # ── enemy collision → game over ───────────────────────────────────────
+
         enemy_hit = pygame.sprite.spritecollideany(self.player, self.enemies)
         if enemy_hit:
             self._crash()
@@ -579,10 +563,10 @@ class GameSession:
             now = pygame.time.get_ticks()
             if self.active_powerup == "nitro":
                 remaining = max(0, (self.powerup_end - now) // 1000)
-                label = f"⚡ NITRO {remaining}s"
+                label = f"NITRO {remaining}s"
                 col   = CYAN
             elif self.active_powerup == "shield":
-                label = "🛡 SHIELD ACTIVE"
+                label = "SHIELD ACTIVE"
                 col   = PURPLE
             else:
                 label = ""

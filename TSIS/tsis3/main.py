@@ -27,7 +27,7 @@ def main():
     settings    = load_settings()
     leaderboard = load_leaderboard()
     username    = "Player"
-    last_result = None          # dict returned by GameSession
+    last_result = None          
 
     state = STATE_MENU
     screen_obj = MainMenu(DISPLAYSURF, settings)
