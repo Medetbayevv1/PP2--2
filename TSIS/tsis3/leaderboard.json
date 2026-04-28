@@ -30,6 +30,18 @@
     "coins": 11
   },
   {
+    "name": "bereket",
+    "score": 196,
+    "distance": 431,
+    "coins": 13
+  },
+  {
+    "name": "bereket",
+    "score": 161,
+    "distance": 585,
+    "coins": 13
+  },
+  {
     "name": "kanat",
     "score": 159,
     "distance": 302,
@@ -46,17 +58,5 @@
     "score": 102,
     "distance": 265,
     "coins": 16
-  },
-  {
-    "name": "hakuna",
-    "score": 89,
-    "distance": 224,
-    "coins": 7
-  },
-  {
-    "name": "k",
-    "score": 80,
-    "distance": 184,
-    "coins": 2
   }
 ]

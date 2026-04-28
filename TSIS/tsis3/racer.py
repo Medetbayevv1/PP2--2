@@ -23,7 +23,7 @@ BUMP_CLR= (120, 90,  50)
 SCREEN_WIDTH  = 400
 SCREEN_HEIGHT = 600
 
-# coin types: (label, fill, border, radius, points, weight)
+# coin types
 COIN_TYPES = [
     ("bronze", BRONZE, (160, 90, 30),   7, 1, 55),
     ("silver", SILVER, (140,140,140),   8, 2, 30),
@@ -257,19 +257,19 @@ class GameSession:
         self.coin_points      = 0
         self.coin_milestone   = 10
         self.last_milestone   = 0
-        self.speed_flash      = 0        # frames
+        self.speed_flash      = 0        
 
-        self.distance         = 0        # metres (approximate)
-        self.distance_timer   = 0        # pixel accumulator
+        self.distance         = 0        
+        self.distance_timer   = 0        
 
-        self.active_powerup   = None     # "nitro" | "shield" | "repair" | None
-        self.powerup_end      = 0        # ticks
+        self.active_powerup   = None     
+        self.powerup_end      = 0        
         self._base_speed      = self.diff["speed"]
         self._nitro_boost     = 3.0
 
-        self.on_oil           = False    # True while player overlaps oil
-        self._oil_applied     = False    # True while the speed reduction is active
-        self._OIL_SLOW        = 1.5      # fixed speed units removed while on oil
+        self.on_oil           = False    
+        self._oil_applied     = False    
+        self._OIL_SLOW        = 1.5      
         self.shield_active    = False
 
         self.alive            = True
@@ -308,10 +308,10 @@ class GameSession:
         # sprite groups
         self.enemies     = pygame.sprite.Group()
         self.coins       = pygame.sprite.Group()
-        self.oils        = pygame.sprite.Group()   # OilSpill only
-        self.bumps       = pygame.sprite.Group()   # SpeedBump only
-        self.obstacles   = pygame.sprite.Group()   # RoadObstacle (kills player)
-        self.powerups    = pygame.sprite.Group()   # collectible power-ups
+        self.oils        = pygame.sprite.Group()   
+        self.bumps       = pygame.sprite.Group()   
+        self.obstacles   = pygame.sprite.Group()   
+        self.powerups    = pygame.sprite.Group()   
         self.all_sprites = pygame.sprite.Group()
 
         for _ in range(self.diff["enemies"]):
