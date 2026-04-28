@@ -36,6 +36,12 @@
     "coins": 9
   },
   {
+    "name": "alibek",
+    "score": 118,
+    "distance": 444,
+    "coins": 14
+  },
+  {
     "name": "Bereket",
     "score": 102,
     "distance": 265,
@@ -52,11 +58,5 @@
     "score": 80,
     "distance": 184,
     "coins": 2
-  },
-  {
-    "name": "b",
-    "score": 68,
-    "distance": 174,
-    "coins": 11
   }
 ]
